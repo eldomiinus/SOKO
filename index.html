@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKO | Multi-Inventario</title>
+    <style>
+        :root {
+            --bg-deep: #0a0a0a;
+            --bg-surface: #121212;
+            --bg-panel: #181818;
+            --accent: #00f2ff;
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --border: #2a2a2a;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+            --top-bar-height: 35px;
+            --sidebar-width-full: 240px;
+            --sidebar-width-compact: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            height: 100vh;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: var(--sidebar-width-full) 1fr 320px;
+            grid-template-rows: var(--top-bar-height) 1fr;
+            grid-template-areas:
+                "top top top"
+                "nav main detail";
+            transition: grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.sidebar-compact {
+            grid-template-columns: var(--sidebar-width-compact) 1fr 320px;
+        }
+
+        /* --- Top Bar (VS Code Style) --- */
+        .top-bar {
+            grid-area: top;
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+            z-index: 100;
+            -webkit-app-region: drag; /* Makes the bar draggable */
+            height: var(--top-bar-height);
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            -webkit-app-region: no-drag; /* Ensure buttons are clickable */
+        }
+
+        .top-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 3px;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-btn:hover {
+            background: var(--border);
+            color: var(--text-main);
+        }
+
+        .search-container {
+            flex: 0 1 400px;
+            -webkit-app-region: no-drag;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 2px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+            text-align: center;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+        }
+
+        /* Window Controls */
+        .window-controls {
+            display: flex;
+            gap: 0;
+        }
+
+        .win-btn {
+            width: 45px;
+            height: var(--top-bar-height);
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .win-btn:hover {
+            background: var(--border);
+            color: var(--text-main);
+        }
+
+        .win-btn.close:hover {
+            background: #e81123;
+            color: white;
+        }
+
+        /* --- Side Nav (Spotify Style) --- */
+        .side-nav {
+            grid-area: nav;
+            background-color: var(--bg-surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-header {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .toggle-sidebar {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--border);
+            color: var(--text-main);
+        }
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .nav-item:hover {
+            color: var(--text-main);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        .nav-item.active {
+            color: var(--accent);
+            background: rgba(0, 242, 255, 0.1);
+            border-left: 3px solid var(--accent);
+        }
+
+        .nav-icon {
+            min-width: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Sidebar Compact State */
+        body.sidebar-compact .nav-item span {
+            display: none;
+        }
+        body.sidebar-compact .nav-item {
+            justify-content: center;
+            padding: 12px 0;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            grid-area: main;
+            padding: 30px;
+            overflow-y: auto;
+            background-color: var(--bg-deep);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .product-card .img-placeholder {
+            flex: 1;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .product-info {
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .product-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-sku {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        /* --- Detail Panel (Spotify Style) --- */
+        .detail-panel {
+            grid-area: detail;
+            background-color: var(--bg-surface);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .detail-cover {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-family: var(--font-mono);
+            border-bottom: 1px solid var(--border);
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s ease;
+        }
+
+        .detail-content {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .detail-title-group {
+            margin-bottom: 24px;
+        }
+
+        .detail-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .detail-subtitle {
+            font-family: var(--font-mono);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .detail-section {
+            margin-bottom: 24px;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-label {
+            color: var(--text-dim);
+        }
+
+        .data-value {
+            font-family: var(--font-mono);
+            font-weight: 500;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-dim);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="top-bar-left">
+            <button class="top-btn" title="Atrás">←</button>
+            <button class="top-btn" title="Adelante">→</button>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar variante, SKU o código de barras...">
+        </div>
+        <div class="top-bar-right">
+            <button class="top-btn" title="Descargar">↓</button>
+            <button class="top-btn" title="Editar">✎</button>
+            <button class="top-btn" title="Seleccionar">✓</button>
+            <button class="top-btn" title="Layout">⊞</button>
+            <div class="window-controls">
+                <button class="win-btn" id="win-min" title="Minimizar">−</button>
+                <button class="win-btn" id="win-max" title="Maximizar">▢</button>
+                <button class="win-btn close" id="win-close" title="Cerrar">×</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="side-nav">
+        <div class="nav-header">
+            <span class="brand" style="font-size: 0.9rem; color: var(--accent);">SOKO</span>
+            <button class="toggle-sidebar" id="sidebarToggle">☰</button>
+        </div>
+        <div class="nav-list">
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">🏢</span> <span>Catálogo</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">📦</span> <span>Inventarios</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">🏷️</span> <span>Etiquetas</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">📊</span> <span>Dead Stock</span>
+            </a>
+            <div style="margin-top: auto; padding-bottom: 20px;">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚙️</span> <span>Configuración</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="catalog-grid" id="catalogGrid">
+            <!-- Product cards generated by JS -->
+        </div>
+    </main>
+
+    <aside class="detail-panel">
+        <div class="detail-cover" id="detailCover">NO IMAGE</div>
+        <div class="detail-content">
+            <div class="detail-title-group">
+                <div class="detail-title" id="detTitle">Seleccione Producto</div>
+                <div class="detail-subtitle" id="detSku">—</div>
+            </div>
+
+            <div class="detail-section">
+                <span class="section-label">Técnica</span>
+                <div class="data-row">
+                    <span class="data-label">Categoría</span>
+                    <span class="data-value" id="detCat">—</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Fit</span>
+                    <span class="data-value" id="detFit">—</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Tela</span>
+                    <span class="data-value" id="detFabric">—</span>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <span class="section-label">Comercial</span>
+                <div class="data-row">
+                    <span class="data-label">Precio Costo</span>
+                    <span class="data-value" id="detCost">—</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Precio Venta</span>
+                    <span class="data-value" id="detSale">—</span>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <span class="section-label">Estado</span>
+                <div class="data-row">
+                    <span class="data-label">Status</span>
+                    <span class="data-value" id="detStatus" style="color: var(--accent);">—</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        // Window Controls Logic
+        document.getElementById('win-min').onclick = () => ipcRenderer.send('window-min');
+        document.getElementById('win-max').onclick = () => ipcRenderer.send('window-max');
+        document.getElementById('win-close').onclick = () => ipcRenderer.send('window-close');
+
+        // Sidebar Toggle Logic
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        sidebarToggle.onclick = () => {
+            document.body.classList.toggle('sidebar-compact');
+        };
+
+        // Mock Data for demonstration
+        const mockProducts = [
+            { id: 1, name: 'T-Shirt Oversize Black', sku: 'SKU-BLK-OS-01', cat: 'Tops', fit: 'Oversize', fabric: '100% Cotton', cost: '$12.00', sale: '$25.00', status: 'AVAILABLE', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=T-SHIRT' },
+            { id: 2, name: 'Cargo Pants Olive', sku: 'SKU-OLV-CP-02', cat: 'Bottoms', fit: 'Relaxed', fabric: 'Ripstop Nylon', cost: '$18.00', sale: '$45.00', status: 'AVAILABLE', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=CARGO' },
+            { id: 3, name: 'Hoodie Neon Cyan', sku: 'SKU-CYN-HD-03', cat: 'Tops', fit: 'Standard', fabric: 'Fleece', cost: '$22.00', sale: '$55.00', status: 'IN_PRODUCTION', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=HOODIE' },
+            { id: 4, name: 'Beanie Charcoal', sku: 'SKU-CHR-BN-04', cat: 'Accessories', fit: 'One Size', fabric: 'Acrylic', cost: '$4.00', sale: '$15.00', status: 'AVAILABLE', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=BEANIE' },
+            { id: 5, name: 'Utility Vest Grey', sku: 'SKU-GRY-UV-05', cat: 'Tops', fit: 'Boxy', fabric: 'Polyester', cost: '$15.00', sale: '$38.00', status: 'ARCHIVED', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=VEST' },
+            { id: 6, name: 'Slim Jeans Raw', sku: 'SKU-RAW-SJ-06', cat: 'Bottoms', fit: 'Slim', fabric: 'Raw Denim', cost: '$20.00', sale: '$60.00', status: 'AVAILABLE', img: 'https://via.placeholder.com/300x300/1a1a1a/00f2ff?text=JEANS' },
+        ];
+
+        // Render Catalog
+        const catalogGrid = document.getElementById('catalogGrid');
+        mockProducts.forEach(prod => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="img-placeholder" style="background-image: url('${prod.img}'); background-size: cover;">
+                    ${prod.name}
+                </div>
+                <div class="product-info">
+                    <div class="product-name">${prod.name}</div>
+                    <div class="product-sku">${prod.sku}</div>
+                </div>
+            `;
+            card.onclick = () => updateDetailPanel(prod);
+            catalogGrid.appendChild(card);
+        });
+
+        function updateDetailPanel(prod) {
+            document.getElementById('detailCover').style.backgroundImage = `url('${prod.img}')`;
+            document.getElementById('detailCover').innerText = '';
+            document.getElementById('detTitle').innerText = prod.name;
+            document.getElementById('detSku').innerText = prod.sku;
+            document.getElementById('detCat').innerText = prod.cat;
+            document.getElementById('detFit').innerText = prod.fit;
+            document.getElementById('detFabric').innerText = prod.fabric;
+            document.getElementById('detCost').innerText = prod.cost;
+            document.getElementById('detSale').innerText = prod.sale;
+            document.getElementById('detStatus').innerText = prod.status;
+        }
+    </script>
+</body>
+</html>

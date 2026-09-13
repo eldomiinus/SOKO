@@ -1,0 +1,25 @@
+{
+  "name": "soko",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">     <h1>📦 SOKO</h1>     <h2>Gestión Inteligente y Multi-Inventario para Marcas de Indumentaria</h2> </div>",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eldomiinus/SOKO.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eldomiinus/SOKO/issues"
+  },
+  "homepage": "https://github.com/eldomiinus/SOKO#readme",
+  "devDependencies": {
+    "electron": "^44.3.0"
+  },
+  "dependencies": {
+    "sqlite3": "^6.0.1"
+  }
+}
