@@ -5,9 +5,9 @@
 
 <div align="center">
     <img src="https://img.shields.io/badge/Status-En%20Desarrollo-orange?style=for-the-badge" alt="Status">
+    <img src="https://img.shields.io/badge/Framework-Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron">
     <img src="https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
     <img src="https://img.shields.io/badge/Architecture-Offline_First-111111?style=for-the-badge" alt="Offline First">
-    <img src="https://img.shields.io/badge/Ecosystem-Kyro-8A2BE2?style=for-the-badge" alt="Ecosistema Kyro">
 </div>
 
 > **"El caos del stock tradicional termina aquí."** SOKO es un software de escritorio integral diseñado para marcas emergentes de estilos *alternativos*, showrooms y emprendedores textiles que manejan lanzamientos limitados o *drops*. Permite controlar el ciclo de vida completo de cada prenda mediante un sistema avanzado de variantes, gestionando en tiempo real depósitos, locales y eventos temporales sin perder una sola unidad.
@@ -38,13 +38,13 @@ SOKO está concebido bajo una arquitectura **Offline-First**, priorizando el ren
 
 | Capa | Tecnología | Descripción |
 | :--- | :--- | :--- |
-| **🎨 Frontend (UI/UX)** | HTML5, CSS3, JS | Interfaz estructurada en cuadrículas (*grids*). Diseño *Dark Mode* nativo con estética técnica, limpia y *cyber*. |
-| **⚙️ Backend** | *A definir (Tauri/Electron)* | Empaquetado de aplicación de escritorio híbrida, asegurando alto rendimiento y acceso profundo al sistema de archivos local. |
-| **💾 Base de Datos** | SQLite | Motor relacional local (archivo único) *serverless*. Soporta transacciones ACID seguras. |
+| **🎨 Frontend (UI/UX)** | HTML5, CSS3, Vanilla JS | Interfaz estructurada mediante CSS Grid. Diseño *Dark Mode* nativo (estética *cyber/tech*), ventana sin marco (frameless) y paneles colapsables dinámicos. |
+| **⚙️ Backend** | Node.js + Electron | Empaquetado de aplicación de escritorio nativa, asegurando alto rendimiento, manejo seguro de ventanas y acceso profundo al sistema de archivos local. |
+| **💾 Base de Datos** | SQLite3 | Motor relacional local (archivo único) alojado en `userData`. Soporta transacciones ACID seguras y garantiza portabilidad. |
 
 ### 📂 Flujo de Datos y Almacenamiento
 1. **Normalización Relacional:** Separación estricta entre la identidad de la prenda (el catálogo general) y su ubicación física (los inventarios) utilizando tablas puente transaccionales (*Inventory_Stock*), eliminando por completo la duplicación de datos.
-2. **Gestión Multimedia Optimizada:** Está terminantemente prohibido almacenar imágenes pesadas (BLOB) en la base de datos. Las fotografías se copian de forma transparente a un directorio local y SQLite únicamente registra las rutas relativas. Esto garantiza que la base de datos mantenga un peso ultra-ligero (inferior a 15 MB), garantizando tiempos de respuesta de milisegundos.
+2. **Gestión Multimedia Optimizada:** Está terminantemente prohibido almacenar imágenes pesadas (BLOB) en la base de datos. Las fotografías se copian de forma transparente a un directorio local y SQLite únicamente registra las rutas relativas. Esto garantiza que la base de datos mantenga un peso ultra-ligero, garantizando tiempos de respuesta de milisegundos.
 
 ---
 
@@ -67,12 +67,15 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 - [x] Diseño arquitectónico del Ecosistema Modular Kyro (SOKO, POS y KURA).
 
 ### 🎨 Fases de Desarrollo Frontend
-- [ ] Maquetación del Dashboard Principal (HTML/CSS).
-- [ ] Desarrollo de componentes visuales (Grids, Tablas de datos y Panel de Alertas).
-- [ ] Integración de la interfaz con los controladores lógicos.
+- [x] Maquetación de la arquitectura UI base (CSS Grid, 4 zonas funcionales).
+- [x] Implementación de comportamiento nativo (Ventana Frameless y Top Bar arrastrable).
+- [x] Desarrollo de Sidebar colapsable y Panel de Detalles dinámico (Mockup interactivo).
+- [ ] Conexión del frontend con el motor de plantillas/datos de SQLite.
 
 ### ⚙️ Fases de Desarrollo Backend y Lógica
-- [ ] Inicialización del archivo de Base de Datos local y migración de tablas principales (*Products_Variants*, *Inventories*, *Inventory_Stock*).
+- [x] Configuración del entorno Node.js y dependencias de Electron.
+- [x] Compilación de binarios nativos y exclusión de `node_modules` en Git.
+- [x] Inicialización automática de la base de datos local (`soko.db`) en el directorio de usuario.
 - [ ] Creación del módulo CRUD para "Producto Padre" y el desglose de sus Variantes.
 - [ ] Desarrollo del motor transaccional seguro para las transferencias de stock.
 - [ ] Implementación de Módulos Auxiliares: Generación de Etiquetas, Acciones Masivas y Detección de Dead Stock.
@@ -90,14 +93,14 @@ git clone [https://github.com/eldomiinus/SOKO.git](https://github.com/eldomiinus
 # 2. Acceder al directorio raíz del proyecto
 cd SOKO
 
-# 3. Instalar las dependencias del proyecto (Ejemplo basado en entorno Node.js)
+# 3. Instalar las dependencias del proyecto
 npm install
 
-# 4. Inicializar y migrar la base de datos local SQLite
-npm run db:init
+# 4. Asegurar la correcta compilación de los módulos nativos (SQLite3)
+npm rebuild sqlite3
 
 # 5. Ejecutar la aplicación en modo desarrollo
-npm run dev
+npm start
 ```
 
 ---
