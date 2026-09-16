@@ -13,28 +13,28 @@
 
 <div align="center">
 
-![GitHub last commit](https://img.shields.io/github/last-commit/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=9ccbfb)
-![GitHub Repo stars](https://img.shields.io/github/stars/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=b9c8da)
-![GitHub repo size](https://img.shields.io/github/repo-size/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=d3bfe6)
+[![GitHub last commit](https://img.shields.io/github/last-commit/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=9ccbfb)](https://github.com/eldomiinus/SOKO/activity)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=b9c8da)](https://github.com/eldomiinus/SOKO/stargazers)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=d3bfe6)](https://github.com/eldomiinus/SOKO)
 [![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&label=Framework&labelColor=101418&color=90C7FF)](https://www.electronjs.org/)
-[![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=Sqlite&logoColor=747474&label=DataBase&labelColor=101418&color=90C7FF)](https://www.sqlite.org/index.html)
-[![Ko-Fi donate](https://img.shields.io/badge/donate-kofi?style=for-the-badge&logo=ko-fi&logoColor=ffffff&label=ko-fi&labelColor=101418&color=f16061&link=https%3A%2F%2Fko-fi.com%2Ftu_usuario)](https://ko-fi.com/tu_usuario)
+[![DataBase](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=Sqlite&logoColor=747474&label=DataBase&labelColor=101418&color=90C7FF)](https://www.sqlite.org/index.html)
+[![Ko-Fi Donate](https://img.shields.io/badge/donate-kofi?style=for-the-badge&logo=ko-fi&logoColor=ffffff&label=ko-fi&labelColor=101418&color=f16061&link=https%3A%2F%2Fko-fi.com%2Ftu_usuario)](https://ko-fi.com/tu_usuario)
 
 </div>
 
 > **"El caos del stock tradicional termina aquí."** SOKO es un software de escritorio integral diseñado para marcas emergentes de estilos *alternativos*, showrooms y emprendedores textiles que manejan lanzamientos limitados o *drops*. Permite controlar el ciclo de vida completo de cada prenda mediante un sistema avanzado de variantes, gestionando en tiempo real depósitos, locales y eventos temporales sin perder una sola unidad.
 
 ## 📑 Tabla de Contenidos
-- [`🚀 Core Features`](#-core-features)
-- [`🏗️ Arquitectura y Tecnologías`](#-arquitectura-y-tecnologías)
-- [`🔗 El Ecosistema Modular Kyro`](#-el-ecosistema-modular-kyro)
-- [`🗺️ Roadmap y Progreso`](#-roadmap-y-progreso)
-- [`⚙️ Instalación y Uso`](#-instalación-y-uso)
-- [`📈 Stonks`](#-📈-Stonks)
+- [🚀 Características principales](#-características-principales)
+- [🏗️ Arquitectura y Tecnologías](#️-arquitectura-y-tecnologías)
+- [🔗 El Ecosistema Modular Kyro](#-el-ecosistema-modular-kyro)
+- [🗺️ Desarrollo y Progreso](#️-desarrollo-y-progreso)
+- [⚙️ Instalación](#️-instalación)
+- [📈 Estadísticas](#-estadísticas)
 
 <br>
 
-## 🚀 Core Features
+## 🚀 Características principales
 
 - **🌐 Multi-Inventario Dinámico:** Crea espacios de stock independientes (Local Fijo, Depósito Central, Ferias de fin de semana). Transfiere prendas entre ubicaciones de forma segura mediante transacciones relacionales y, al archivar un evento temporal, devuelve automáticamente los sobrantes al stock central.
 - **🧬 Sistema de Variantes (Multi-Nivel):** Configura un "Producto Padre" y desglosa el inventario para cada combinación de *Talle* y *Color* con control de stock individual y preciso.
@@ -78,7 +78,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 
 <br>
 
-## 🗺️ Roadmap y Progreso
+## 🗺️ Desarrollo y Progreso
 
 ### 📌 Fases de Planificación y Estructura
 - [x] Definición de Arquitectura y Base de Datos relacional ([`SQLite`](https://www.sqlite.org/index.html)).
@@ -102,7 +102,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 
 <br>
 
-## ⚙️ Instalación y Uso
+## ⚙️ Instalación
 
 Sigue estos pasos para levantar el entorno de SOKO en tu máquina local y comenzar a aportar al desarrollo.
 
@@ -125,7 +125,7 @@ npm start
 
 <br>
 
-## 📈 Stonks
+## 📈 Estadísticas
 
 <a href="https://www.star-history.com/?repos=eldomiinus%2Fsoko&type=date&legend=bottom-right">
     <picture>
@@ -138,5 +138,5 @@ npm start
 <br>
 
 <div align="center">
-    <h2>Gracias por su atención! <3</h2>
+    <h2>¡Gracias por su atención! <3</h2>
 </div>
