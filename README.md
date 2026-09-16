@@ -3,6 +3,12 @@
     <b>Gestión Inteligente y Multi-Inventario para Marcas de Indumentaria</b>
 </div>
 
+<div align="center">
+    <sub>
+        <a href="README.md">English</a> · <a href="docs/readme/README.es.md">Español</a> · <a href="docs/readme/README.ru.md">Русский</a> · <a href="docs/readme/README.ja.md">日本語</a> · <a href="docs/readme/README.ko.md">한국어</a> · <a href="docs/readme/README.pt.md">Português</a> · <a href="docs/readme/README.fr.md">Français</a> · <a href="docs/readme/README.it.md">Italiano</a>
+    </sub>
+</div>
+
 <br>
 
 <div align="center">
@@ -10,8 +16,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=9ccbfb)
 ![GitHub Repo stars](https://img.shields.io/github/stars/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=b9c8da)
 ![GitHub repo size](https://img.shields.io/github/repo-size/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=d3bfe6)
-![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&color=47848F)
-![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=sqlite&logoColor=ffffff&color=003B57)
+[![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&color=47848F)](https://www.electronjs.org/)
+[![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=sqlite&logoColor=ffffff&color=003B57)](https://www.sqlite.org/index.html)
 [![Ko-Fi donate](https://img.shields.io/badge/donate-kofi?style=for-the-badge&logo=ko-fi&logoColor=ffffff&label=ko-fi&labelColor=101418&color=f16061&link=https%3A%2F%2Fko-fi.com%2Ftu_usuario)](https://ko-fi.com/tu_usuario)
 
 </div>
@@ -74,7 +80,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 ## 🗺️ Roadmap y Progreso
 
 ### 📌 Fases de Planificación y Estructura
-- [x] Definición de Arquitectura y Base de Datos relacional (SQLite).
+- [x] Definición de Arquitectura y Base de Datos relacional ([`SQLite`](https://www.sqlite.org/index.html)).
 - [x] Especificación de Requisitos, Flujos de usuario y Multi-Inventario.
 - [x] Guía de Diseño UI/UX y Paleta de colores (*Dark Mode* / *Cyber tech*).
 - [x] Diseño arquitectónico del Ecosistema Modular Kyro (SOKO, POS y KURA).
@@ -101,10 +107,10 @@ Sigue estos pasos para levantar el entorno de SOKO en tu máquina local y comenz
 
 ```bash
 # 1. Clonar el repositorio oficial
-git clone https://github.com/eldomiinus/SOKO.git
+git clone https://github.com/eldomiinus/soko.git
 
 # 2. Acceder al directorio raíz del proyecto
-cd SOKO
+cd soko
 
 # 3. Instalar las dependencias del proyecto
 npm install
@@ -121,11 +127,11 @@ npm start
 ## 📈 Stonks
 
 <a href="https://www.star-history.com/?repos=eldomiinus%2Fsoko&type=date&legend=bottom-right">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
- </picture>
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&theme=dark&legend=top-left" />
+        <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
+        <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
+    </picture>
 </a>
 
 <br>
