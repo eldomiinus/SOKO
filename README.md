@@ -1,6 +1,6 @@
 <div align="center">
     <h1>📦 SOKO</h1>
-    <b>Gestión Inteligente y Multi-Inventario para Marcas de Indumentaria</b>
+    <b>Smart Multi-Inventory Management for Clothing Brands</b>
 </div>
 
 <div align="center">
@@ -22,110 +22,110 @@
 
 </div>
 
-> **"El caos del stock tradicional termina aquí."** SOKO es un software de escritorio integral diseñado para marcas emergentes de estilos *alternativos*, showrooms y emprendedores textiles que manejan lanzamientos limitados o *drops*. Permite controlar el ciclo de vida completo de cada prenda mediante un sistema avanzado de variantes, gestionando en tiempo real depósitos, locales y eventos temporales sin perder una sola unidad.
+> **"The chaos of traditional stock management ends here."** SOKO is comprehensive desktop software designed for emerging *alternative* fashion brands, showrooms, and textile entrepreneurs managing limited releases or *drops*. It lets you control the complete lifecycle of every garment through an advanced variant system, managing warehouses, stores, and temporary events in real time without losing a single unit.
 
-## 📑 Tabla de Contenidos
-- [🚀 Características principales](#-características-principales)
-- [🏗️ Arquitectura y Tecnologías](#️-arquitectura-y-tecnologías)
-- [🔗 El Ecosistema Modular Kyro](#-el-ecosistema-modular-kyro)
-- [🗺️ Desarrollo y Progreso](#️-desarrollo-y-progreso)
-- [⚙️ Instalación](#️-instalación)
-- [📈 Estadísticas](#-estadísticas)
-
-<br>
-
-## 🚀 Características principales
-
-- **🌐 Multi-Inventario Dinámico:** Crea espacios de stock independientes (Local Fijo, Depósito Central, Ferias de fin de semana). Transfiere prendas entre ubicaciones de forma segura mediante transacciones relacionales y, al archivar un evento temporal, devuelve automáticamente los sobrantes al stock central.
-- **🧬 Sistema de Variantes (Multi-Nivel):** Configura un "Producto Padre" y desglosa el inventario para cada combinación de *Talle* y *Color* con control de stock individual y preciso.
-- **🏷️ Generador de Etiquetas:** Asignación automatizada de SKU por variante y exportación de plantillas PDF listas para imprimir etiquetas físicas con sus respectivos códigos de barras y precios.
-- **⚡ Acciones Masivas de Catálogo:** Selecciona múltiples variantes simultáneamente para aplicar aumentos porcentuales de precio o alterar estados operativos (ej. de *En Producción* a *Disponible*) con un solo clic.
-- **📒 Directorio de Proveedores Integrado:** Agenda interna vinculada a la ficha técnica para guardar los contactos exactos de los talleres de confección y serigrafía correspondientes a cada lote, vital para agilizar la repetición de producciones exitosas.
-- **📉 Reporte de "Stock Estancado" (Dead Stock):** Panel analítico inteligente que detecta prendas inmovilizadas en inventario por más de 60 días, proporcionando la métrica indispensable para planificar liquidaciones o promociones especiales.
+## 📑 Table of Contents
+- [🚀 Main Features](#-main-features)
+- [🏗️ Architecture and Technologies](#️-architecture-and-technologies)
+- [🔗 The Kyro Modular Ecosystem](#-the-kyro-modular-ecosystem)
+- [🗺️ Development and Progress](#️-development-and-progress)
+- [⚙️ Installation](#️-installation)
+- [📈 Statistics](#-statistics)
 
 <br>
 
-## 🏗️ Arquitectura y Tecnologías
+## 🚀 Main Features
+
+- **🌐 Dynamic Multi-Inventory:** Create independent stock spaces (Permanent Store, Central Warehouse, Weekend Fairs). Safely transfer garments between locations through relational transactions and, when archiving a temporary event, automatically return leftovers to central stock.
+- **🧬 Variant System (Multi-Level):** Configure a "Parent Product" and break down inventory for each *Size* and *Color* combination with precise, individual stock control.
+- **🏷️ Label Generator:** Automated SKU assignment per variant and export of PDF templates ready to print physical labels with their corresponding barcodes and prices.
+- **⚡ Bulk Catalog Actions:** Select multiple variants simultaneously to apply percentage price increases or change operational statuses (e.g., from *In Production* to *Available*) with a single click.
+- **📒 Integrated Supplier Directory:** An internal address book linked to the technical specification sheet for storing the exact contacts of garment-making and screen-printing workshops associated with each batch, essential for streamlining successful repeat production.
+- **📉 "Dead Stock" Report:** An intelligent analytics panel that detects garments left immobile in inventory for more than 60 days, providing the essential metric for planning clearances or special promotions.
+
+<br>
+
+## 🏗️ Architecture and Technologies
 
 > [!NOTE]
-> SOKO está concebido bajo una arquitectura **Offline-First**, priorizando el rendimiento nativo, la portabilidad total (para operar fluidamente en ferias sin conexión a internet) y la privacidad absoluta de los datos locales.
+> SOKO is designed around an **Offline-First** architecture, prioritizing native performance, complete portability (to operate smoothly at fairs without an internet connection), and absolute privacy for local data.
 
-### 💻 Stack Tecnológico
+### 💻 Technology Stack
 
 <div align=center>
 
-| Capa | Tecnología | Descripción |
+| Layer | Technology | Description |
 | :--- | :--- | :--- |
-| **🎨 Frontend (UI/UX)** | HTML5, CSS3, Vanilla JS | Interfaz estructurada mediante CSS Grid. Diseño *Dark Mode* nativo (estética *cyber/tech*), ventana sin marco (frameless) y paneles colapsables dinámicos. |
-| **⚙️ Backend** | Node.js + Electron | Empaquetado de aplicación de escritorio nativa, asegurando alto rendimiento, manejo seguro de ventanas y acceso profundo al sistema de archivos local. |
-| **💾 Base de Datos** | SQLite3 | Motor relacional local (archivo único) alojado en `userData`. Soporta transacciones ACID seguras y garantiza portabilidad. |
+| **🎨 Frontend (UI/UX)** | HTML5, CSS3, Vanilla JS | Interface structured with CSS Grid. Native *Dark Mode* design (*cyber/tech* aesthetic), frameless window, and dynamic collapsible panels. |
+| **⚙️ Backend** | Node.js + Electron | Native desktop application packaging, ensuring high performance, secure window management, and deep access to the local file system. |
+| **💾 Database** | SQLite3 | Local relational engine (single file) stored in `userData`. Supports safe ACID transactions and guarantees portability. |
 
 </div>
 
-### 📂 Flujo de Datos y Almacenamiento
-1. **Normalización Relacional:** Separación estricta entre la identidad de la prenda (el catálogo general) y su ubicación física (los inventarios) utilizando tablas puente transaccionales (*Inventory_Stock*), eliminando por completo la duplicación de datos.
-2. **Gestión Multimedia Optimizada:** Está terminantemente prohibido almacenar imágenes pesadas (BLOB) en la base de datos. Las fotografías se copian de forma transparente a un directorio local y SQLite únicamente registra las rutas relativas. Esto garantiza que la base de datos mantenga un peso ultra-ligero, garantizando tiempos de respuesta de milisegundos.
+### 📂 Data Flow and Storage
+1. **Relational Normalization:** Strict separation between the identity of the garment (the general catalog) and its physical location (the inventories) using transactional bridge tables (*Inventory_Stock*), completely eliminating data duplication.
+2. **Optimized Multimedia Management:** Storing heavy images (BLOBs) in the database is strictly prohibited. Photographs are transparently copied to a local directory, and SQLite only stores their relative paths. This keeps the database ultra-lightweight, ensuring response times of milliseconds.
 
 <br>
 
-## 🔗 El Ecosistema Modular Kyro
+## 🔗 The Kyro Modular Ecosystem
 
-SOKO está diseñado con una arquitectura modular para posicionarse como el núcleo de un entorno de trabajo escalable y a medida, adaptándose al crecimiento operativo y financiero del emprendedor:
+SOKO is designed with a modular architecture to serve as the core of a scalable, customizable work environment that adapts to the entrepreneur's operational and financial growth:
 
-- **📦 SOKO (Core):** El motor principal para la administración integral del catálogo, la logística multi-espacio y el control exhaustivo de variantes.
-- **🛒 SOKO POS (Extensión de Caja - Próximamente):** Un módulo opcional, independiente y ultraligero diseñado exclusivamente para el uso en mostrador. Integra soporte para escáneres láser de código de barras y cálculo ágil de totales. Actúa como un "cliente ligero" que se conecta a la misma base de datos local SQLite para descontar stock en tiempo real, sin requerir abrir la aplicación principal de administración.
-- **📊 KURA (Finanzas - Próximamente):** Plataforma financiera de alto nivel que se sincroniza para recibir automáticamente los ingresos monetarios de las ventas registradas por SOKO/POS, consolidando el control operativo y económico bajo un único flujo automatizado.
-
-<br>
-
-## 🗺️ Desarrollo y Progreso
-
-### 📌 Fases de Planificación y Estructura
-- [x] Definición de Arquitectura y Base de Datos relacional ([`SQLite`](https://www.sqlite.org/index.html)).
-- [x] Especificación de Requisitos, Flujos de usuario y Multi-Inventario.
-- [x] Guía de Diseño UI/UX y Paleta de colores (*Dark Mode* / *Cyber tech*).
-- [x] Diseño arquitectónico del Ecosistema Modular Kyro (SOKO, POS y KURA).
-
-### 🎨 Fases de Desarrollo Frontend
-- [x] Maquetación de la arquitectura UI base (CSS Grid, 4 zonas funcionales).
-- [x] Implementación de comportamiento nativo (Ventana Frameless y Top Bar arrastrable).
-- [x] Desarrollo de Sidebar colapsable y Panel de Detalles dinámico (Mockup interactivo).
-- [ ] Conexión del frontend con el motor de plantillas/datos de SQLite.
-
-### 💼 Fases de Desarrollo Backend y Lógica
-- [x] Configuración del entorno Node.js y dependencias de Electron.
-- [x] Compilación de binarios nativos y exclusión de `node_modules` en Git.
-- [x] Inicialización automática de la base de datos local (`soko.db`) en el directorio de usuario.
-- [ ] Creación del módulo CRUD para "Producto Padre" y el desglose de sus Variantes.
-- [ ] Desarrollo del motor transaccional seguro para las transferencias de stock.
-- [ ] Implementación de Módulos Auxiliares: Generación de Etiquetas, Acciones Masivas y Detección de Dead Stock.
+- **📦 SOKO (Core):** The main engine for comprehensive catalog management, multi-space logistics, and thorough variant control.
+- **🛒 SOKO POS (Checkout Extension - Coming Soon):** An optional, independent, ultra-lightweight module designed exclusively for counter use. It integrates support for laser barcode scanners and fast total calculation. It acts as a "light client" that connects to the same local SQLite database to deduct stock in real time, without requiring the main administration application to be open.
+- **📊 KURA (Finance - Coming Soon):** A high-level financial platform that synchronizes to automatically receive monetary revenue from sales recorded by SOKO/POS, consolidating operational and financial control into a single automated workflow.
 
 <br>
 
-## ⚙️ Instalación
+## 🗺️ Development and Progress
 
-Sigue estos pasos para levantar el entorno de SOKO en tu máquina local y comenzar a aportar al desarrollo.
+### 📌 Planning and Structure Phases
+- [x] Architecture and relational Database definition ([`SQLite`](https://www.sqlite.org/index.html)).
+- [x] Requirements, user flows, and Multi-Inventory specification.
+- [x] UI/UX Design Guide and color palette (*Dark Mode* / *Cyber tech*).
+- [x] Architectural design of the Kyro Modular Ecosystem (SOKO, POS, and KURA).
+
+### 🎨 Frontend Development Phases
+- [x] Layout of the base UI architecture (CSS Grid, 4 functional zones).
+- [x] Implementation of native behavior (Frameless Window and draggable Top Bar).
+- [x] Development of collapsible Sidebar and dynamic Details Panel (interactive Mockup).
+- [ ] Connection of the frontend to the SQLite template/data engine.
+
+### 💼 Backend and Logic Development Phases
+- [x] Configuration of the Node.js environment and Electron dependencies.
+- [x] Compilation of native binaries and exclusion of `node_modules` from Git.
+- [x] Automatic initialization of the local database (`soko.db`) in the user directory.
+- [ ] Creation of the CRUD module for "Parent Product" and its Variant breakdown.
+- [ ] Development of the secure transaction engine for stock transfers.
+- [ ] Implementation of Auxiliary Modules: Label Generation, Bulk Actions, and Dead Stock Detection.
+
+<br>
+
+## ⚙️ Installation
+
+Follow these steps to set up the SOKO environment on your local machine and start contributing to development.
 
 ```bash
-# 1. Clonar el repositorio oficial
+# 1. Clone the official repository
 git clone https://github.com/eldomiinus/soko.git
 
-# 2. Acceder al directorio raíz del proyecto
+# 2. Navigate to the project root directory
 cd soko
 
-# 3. Instalar las dependencias del proyecto
+# 3. Install the project dependencies
 npm install
 
-# 4. Asegurar la correcta compilación de los módulos nativos (SQLite3)
+# 4. Ensure the native modules (SQLite3) compile correctly
 npm rebuild sqlite3
 
-# 5. Ejecutar la aplicación en modo desarrollo
+# 5. Run the application in development mode
 npm start
 ```
 
 <br>
 
-## 📈 Estadísticas
+## 📈 Statistics
 
 <a href="https://www.star-history.com/?repos=eldomiinus%2Fsoko&type=date&legend=bottom-right">
     <picture>
@@ -138,5 +138,5 @@ npm start
 <br>
 
 <div align="center">
-    <h2>¡Gracias por su atención! <3</h2>
+    <h2>¡Thank you for your attention! <3</h2>
 </div>
