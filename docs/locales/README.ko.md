@@ -58,8 +58,8 @@
 
 | 계층 | 기술 | 설명 |
 | :--- | :--- | :--- |
-| **🎨 Frontend (UI/UX)** | HTML5, CSS3, Vanilla JS | CSS Grid로 구성된 인터페이스입니다. 네이티브 *Dark Mode*(*cyber/tech* 스타일), 프레임 없는 창(frameless) 및 동적 접이식 패널을 제공합니다. |
-| **⚙️ Backend** | Node.js + Electron | 네이티브 데스크톱 애플리케이션으로 패키징하여 높은 성능, 안전한 창 관리 및 로컬 파일 시스템에 대한 깊은 접근을 보장합니다. |
+| **🎨 프론트엔드 (UI/UX)** | HTML5, CSS3, Vanilla JS | CSS Grid로 구성된 인터페이스입니다. 네이티브 *Dark Mode*(*cyber/tech* 스타일), 프레임 없는 창(frameless) 및 동적 접이식 패널을 제공합니다. |
+| **⚙️ 백엔드** | Node.js + Electron | 네이티브 데스크톱 애플리케이션으로 패키징하여 높은 성능, 안전한 창 관리 및 로컬 파일 시스템에 대한 깊은 접근을 보장합니다. |
 | **💾 데이터베이스** | SQLite3 | `userData`에 저장되는 로컬 관계형 엔진(단일 파일)입니다. 안전한 ACID 트랜잭션을 지원하고 이식성을 보장합니다. |
 
 </div>
@@ -134,7 +134,7 @@ npm start
 	<picture>
 		<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&theme=dark&legend=top-left" />
 		<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
-		<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
+		<img alt="Star History 차트" src="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
 	</picture>
 </a>
 </div>
