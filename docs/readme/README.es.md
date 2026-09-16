@@ -30,6 +30,7 @@
 - [`🔗 El Ecosistema Modular Kyro`](#-el-ecosistema-modular-kyro)
 - [`🗺️ Roadmap y Progreso`](#-roadmap-y-progreso)
 - [`⚙️ Instalación y Uso`](#-instalación-y-uso)
+- [`📈 Stonks`](#-📈-Stonks)
 
 <br>
 
