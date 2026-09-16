@@ -16,8 +16,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=9ccbfb)
 ![GitHub Repo stars](https://img.shields.io/github/stars/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=b9c8da)
 ![GitHub repo size](https://img.shields.io/github/repo-size/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=d3bfe6)
-[![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&color=47848F)](https://www.electronjs.org/)
-[![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=sqlite&logoColor=ffffff&color=003B57)](https://www.sqlite.org/index.html)
+[![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&label=Framework&labelColor=101418&color=90C7FF)](https://www.electronjs.org/)
+[![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=Sqlite&logoColor=747474&label=DataBase&labelColor=101418&color=90C7FF)](https://www.sqlite.org/index.html)
 [![Ko-Fi donate](https://img.shields.io/badge/donate-kofi?style=for-the-badge&logo=ko-fi&logoColor=ffffff&label=ko-fi&labelColor=101418&color=f16061&link=https%3A%2F%2Fko-fi.com%2Ftu_usuario)](https://ko-fi.com/tu_usuario)
 
 </div>
