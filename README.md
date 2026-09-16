@@ -1,23 +1,31 @@
 <div align="center">
     <h1>📦 SOKO</h1>
-    <h2>Gestión Inteligente y Multi-Inventario para Marcas de Indumentaria</h2>
+    <b>Gestión Inteligente y Multi-Inventario para Marcas de Indumentaria</b>
 </div>
 
+<br>
+
 <div align="center">
-    <img src="https://img.shields.io/badge/Status-En%20Desarrollo-orange?style=for-the-badge" alt="Status">
-    <img src="https://img.shields.io/badge/Framework-Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron">
-    <img src="https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
-    <img src="https://img.shields.io/badge/Architecture-Offline_First-111111?style=for-the-badge" alt="Offline First">
+
+![GitHub last commit](https://img.shields.io/github/last-commit/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=9ccbfb)
+![GitHub Repo stars](https://img.shields.io/github/stars/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=b9c8da)
+![GitHub repo size](https://img.shields.io/github/repo-size/eldomiinus/SOKO?style=for-the-badge&labelColor=101418&color=d3bfe6)
+![Framework](https://img.shields.io/badge/Framework-Electron-101418?style=for-the-badge&logo=electron&logoColor=ffffff&color=47848F)
+![Database](https://img.shields.io/badge/Database-SQLite_3-101418?style=for-the-badge&logo=sqlite&logoColor=ffffff&color=003B57)
+[![Ko-Fi donate](https://img.shields.io/badge/donate-kofi?style=for-the-badge&logo=ko-fi&logoColor=ffffff&label=ko-fi&labelColor=101418&color=f16061&link=https%3A%2F%2Fko-fi.com%2Ftu_usuario)](https://ko-fi.com/tu_usuario)
+
 </div>
 
 > **"El caos del stock tradicional termina aquí."** SOKO es un software de escritorio integral diseñado para marcas emergentes de estilos *alternativos*, showrooms y emprendedores textiles que manejan lanzamientos limitados o *drops*. Permite controlar el ciclo de vida completo de cada prenda mediante un sistema avanzado de variantes, gestionando en tiempo real depósitos, locales y eventos temporales sin perder una sola unidad.
 
 ## 📑 Tabla de Contenidos
-- [🚀 Core Features](#-core-features)
-- [🏗️ Arquitectura y Tecnologías](#️-arquitectura-y-tecnologías)
-- [🔗 El Ecosistema Modular Kyro](#-el-ecosistema-modular-kyro)
-- [🗺️ Roadmap y Progreso](#️-roadmap-y-progreso)
-- [⚙️ Instalación y Uso](#️-instalación-y-uso)
+- [`🚀 Core Features`](#-core-features)
+- [`🏗️ Arquitectura y Tecnologías`](#-arquitectura-y-tecnologías)
+- [`🔗 El Ecosistema Modular Kyro`](#-el-ecosistema-modular-kyro)
+- [`🗺️ Roadmap y Progreso`](#-roadmap-y-progreso)
+- [`⚙️ Instalación y Uso`](#-instalación-y-uso)
+
+<br>
 
 ## 🚀 Core Features
 
@@ -28,13 +36,16 @@
 - **📒 Directorio de Proveedores Integrado:** Agenda interna vinculada a la ficha técnica para guardar los contactos exactos de los talleres de confección y serigrafía correspondientes a cada lote, vital para agilizar la repetición de producciones exitosas.
 - **📉 Reporte de "Stock Estancado" (Dead Stock):** Panel analítico inteligente que detecta prendas inmovilizadas en inventario por más de 60 días, proporcionando la métrica indispensable para planificar liquidaciones o promociones especiales.
 
----
+<br>
 
 ## 🏗️ Arquitectura y Tecnologías
 
-SOKO está concebido bajo una arquitectura **Offline-First**, priorizando el rendimiento nativo, la portabilidad total (para operar fluidamente en ferias sin conexión a internet) y la privacidad absoluta de los datos locales.
+> [!NOTE]
+> SOKO está concebido bajo una arquitectura **Offline-First**, priorizando el rendimiento nativo, la portabilidad total (para operar fluidamente en ferias sin conexión a internet) y la privacidad absoluta de los datos locales.
 
 ### 💻 Stack Tecnológico
+
+<div align=center>
 
 | Capa | Tecnología | Descripción |
 | :--- | :--- | :--- |
@@ -42,11 +53,13 @@ SOKO está concebido bajo una arquitectura **Offline-First**, priorizando el ren
 | **⚙️ Backend** | Node.js + Electron | Empaquetado de aplicación de escritorio nativa, asegurando alto rendimiento, manejo seguro de ventanas y acceso profundo al sistema de archivos local. |
 | **💾 Base de Datos** | SQLite3 | Motor relacional local (archivo único) alojado en `userData`. Soporta transacciones ACID seguras y garantiza portabilidad. |
 
+</div>
+
 ### 📂 Flujo de Datos y Almacenamiento
 1. **Normalización Relacional:** Separación estricta entre la identidad de la prenda (el catálogo general) y su ubicación física (los inventarios) utilizando tablas puente transaccionales (*Inventory_Stock*), eliminando por completo la duplicación de datos.
 2. **Gestión Multimedia Optimizada:** Está terminantemente prohibido almacenar imágenes pesadas (BLOB) en la base de datos. Las fotografías se copian de forma transparente a un directorio local y SQLite únicamente registra las rutas relativas. Esto garantiza que la base de datos mantenga un peso ultra-ligero, garantizando tiempos de respuesta de milisegundos.
 
----
+<br>
 
 ## 🔗 El Ecosistema Modular Kyro
 
@@ -56,7 +69,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 - **🛒 SOKO POS (Extensión de Caja - Próximamente):** Un módulo opcional, independiente y ultraligero diseñado exclusivamente para el uso en mostrador. Integra soporte para escáneres láser de código de barras y cálculo ágil de totales. Actúa como un "cliente ligero" que se conecta a la misma base de datos local SQLite para descontar stock en tiempo real, sin requerir abrir la aplicación principal de administración.
 - **📊 KURA (Finanzas - Próximamente):** Plataforma financiera de alto nivel que se sincroniza para recibir automáticamente los ingresos monetarios de las ventas registradas por SOKO/POS, consolidando el control operativo y económico bajo un único flujo automatizado.
 
----
+<br>
 
 ## 🗺️ Roadmap y Progreso
 
@@ -72,7 +85,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 - [x] Desarrollo de Sidebar colapsable y Panel de Detalles dinámico (Mockup interactivo).
 - [ ] Conexión del frontend con el motor de plantillas/datos de SQLite.
 
-### ⚙️ Fases de Desarrollo Backend y Lógica
+### 💼 Fases de Desarrollo Backend y Lógica
 - [x] Configuración del entorno Node.js y dependencias de Electron.
 - [x] Compilación de binarios nativos y exclusión de `node_modules` en Git.
 - [x] Inicialización automática de la base de datos local (`soko.db`) en el directorio de usuario.
@@ -80,7 +93,7 @@ SOKO está diseñado con una arquitectura modular para posicionarse como el núc
 - [ ] Desarrollo del motor transaccional seguro para las transferencias de stock.
 - [ ] Implementación de Módulos Auxiliares: Generación de Etiquetas, Acciones Masivas y Detección de Dead Stock.
 
----
+<br>
 
 ## ⚙️ Instalación y Uso
 
@@ -88,7 +101,7 @@ Sigue estos pasos para levantar el entorno de SOKO en tu máquina local y comenz
 
 ```bash
 # 1. Clonar el repositorio oficial
-git clone [https://github.com/eldomiinus/SOKO.git](https://github.com/eldomiinus/SOKO.git)
+git clone https://github.com/eldomiinus/SOKO.git
 
 # 2. Acceder al directorio raíz del proyecto
 cd SOKO
@@ -103,7 +116,19 @@ npm rebuild sqlite3
 npm start
 ```
 
----
+<br>
+
+## 📈 Stonks
+
+<a href="https://www.star-history.com/?repos=eldomiinus%2Fsoko&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=eldomiinus/soko&type=date&legend=top-left" />
+ </picture>
+</a>
+
+<br>
 
 <div align="center">
     <h2>Gracias por su atención! <3</h2>
