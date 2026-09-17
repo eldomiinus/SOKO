@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![GitHub License - Dynamic](https://img.shields.io/github/license/eldomiinus/soko?style=for-the-badge&logo=GitBook&label=License&labelColor=101418&color=BBBBDD)](https://opensource.org/license/mit)
+[![GitHub License - Static](https://img.shields.io/badge/MIT-License?style=for-the-badge&logo=GitBook&label=License&labelColor=101418&color=BBBBDD)](https://opensource.org/license/mit)
 [![Open Source - Static](https://img.shields.io/badge/Open_Source-Proyect?style=for-the-badge&logo=OpenSourceInitiative&logoColor=FFFFFF&label=Proyect&labelColor=101418&color=BBBBDD)](https://opensource.org/)
 
 </div>
