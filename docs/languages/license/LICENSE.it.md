@@ -5,7 +5,7 @@
 
 <div align="center">
     <sub>
-        <a href="LICENSE.md">English</a> · <a href="docs/languages/license/LICENSE.es.md">Español</a> · <a href="docs/languages/license/LICENSE.ru.md">Русский</a> · <a href="docs/languages/license/LICENSE.ja.md">日本語</a> · <a href="docs/languages/license/LICENSE.ko.md">한국어</a> · <a href="docs/languages/license/LICENSE.pt.md">Português</a> · <a href="docs/languages/license/LICENSE.fr.md">Français</a> · <a href="docs/languages/license/LICENSE.it.md">Italiano</a>
+        <a href="../../../LICENSE.md">English</a> · <a href="LICENSE.es.md">Español</a> · <a href="LICENSE.ru.md">Русский</a> · <a href="LICENSE.ja.md">日本語</a> · <a href="LICENSE.ko.md">한국어</a> · <a href="LICENSE.pt.md">Português</a> · <a href="LICENSE.fr.md">Français</a> · <a href="LICENSE.it.md">Italiano</a>
     </sub>
 </div>
 
