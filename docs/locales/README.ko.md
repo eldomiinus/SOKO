@@ -145,6 +145,6 @@ npm start
 
 <h2>¡관심을 가져 주셔서 감사합니다! <3</h2>
 
-[![GitHub License - Dynamic](https://img.shields.io/github/license/eldomiinus/soko?style=for-the-badge&logo=GitBook&label=License&labelColor=101418&color=BBBBDD)](https://github.com/eldomiinus/SOKO?tab=MIT-1-ov-file)
+[![GitHub License - Dynamic](https://img.shields.io/github/license/eldomiinus/soko?style=for-the-badge&logo=GitBook&label=License&labelColor=101418&color=BBBBDD)](https://github.com/eldomiinus/SOKO?tab=License-1-ov-file)
 
 </div>
