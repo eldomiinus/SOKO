@@ -3,12 +3,6 @@
     <b>Open Source, transparent, and community-driven.</b>
 </div>
 
-<div align="center">
-    <sub>
-        <a href="LICENSE.md">English</a> · <a href="docs/languages/license/LICENSE.es.md">Español</a> · <a href="docs/languages/license/LICENSE.ru.md">Русский</a> · <a href="docs/languages/license/LICENSE.ja.md">日本語</a> · <a href="docs/languages/license/LICENSE.ko.md">한국어</a> · <a href="docs/languages/license/LICENSE.pt.md">Português</a> · <a href="docs/languages/license/LICENSE.fr.md">Français</a> · <a href="docs/languages/license/LICENSE.it.md">Italiano</a>
-    </sub>
-</div>
-
 <br>
 
 <div align="center">

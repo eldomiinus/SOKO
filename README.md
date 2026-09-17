@@ -26,6 +26,8 @@
 
 > **"The chaos of traditional stock management ends here."** SOKO is comprehensive desktop software designed for emerging *alternative* fashion brands, showrooms, and textile entrepreneurs managing limited releases or *drops*. It lets you control the complete lifecycle of every garment through an advanced variant system, managing warehouses, stores, and temporary events in real time without losing a single unit.
 
+<br>
+
 ## 📑 Table of Contents
 - [🚀 Main Features](#-main-features)
 - [🏗️ Architecture and Technologies](#️-architecture-and-technologies)
