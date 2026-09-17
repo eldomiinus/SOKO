@@ -7,8 +7,8 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-101418?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=99CCFF)](#-the-legal-text)
-[![Open Source Love](https://img.shields.io/badge/Open_Source-💙-101418?style=for-the-badge&color=BBBBDD)](#)
+[![GitHub License - Dynamic](https://img.shields.io/github/license/eldomiinus/soko?style=for-the-badge&logo=GitBook&label=License&labelColor=101418&color=BBBBDD)](https://opensource.org/license/mit)
+[![Open Source - Static](https://img.shields.io/badge/Open_Source-Proyect?style=for-the-badge&logo=OpenSourceInitiative&logoColor=FFFFFF&label=Proyect&labelColor=101418&color=BBBBDD)](https://opensource.org/)
 
 </div>
 
@@ -16,7 +16,7 @@
 
 <br>
 
-## 📌 Human-Readable Summary
+## 📌 License summary
 
 This is a quick guide to how you can use, modify, and share this project. *(Please note: This section is for informational purposes only and does not replace the official legal text below).*
 
