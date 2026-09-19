@@ -23,14 +23,14 @@ agents/
 .vscode/
 .zed/
 
-# <--- Reference ---->
+# <--- Reference ------>
 .reference/
 
 # <--- Node ----------->
 node_modules/
 
 # <--- Wiki ----------->
-wiki/
+.wiki/
 
 
 # ----------------------------------------------------------
