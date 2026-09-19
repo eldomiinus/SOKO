@@ -1,4 +1,67 @@
 # <<<-------------------- GIT IGNORE -------------------->>>
+# <<<----------------------- main ----------------------->>>
 
-# <---------- Folders ---------->
+
+# <<---------- Folders ------------>>
+# <--- Agents --------->
+.agents/
+.agents-backup/
+.codex/
+.claude/
+.gemini/
+.github/agents/
+.github/copilot-instructions.md
+.github/instructions/
+agents/
+
+# <--- Backup --------->
+.backups/
+
+# <--- Editor / IDE ---> 
+.cursor/
+.idea/
+.vscode/
+.zed/
+
+# <--- Reference ---->
+.reference/
+
+# <--- Node ----------->
 node_modules/
+
+# <--- Wiki ----------->
+wiki/
+
+
+# ----------------------------------------------------------
+
+
+# <<---------- Files -------------->>
+# <--- Agents ------->
+AGENTS.md
+SKILLS.md
+PROMPTS.md
+TASKS.md
+CODEX.md
+GEMINI.md
+CLAUDE.md
+
+# <--- Reference ---->
+context.md
+progress.md
+research.md
+plan.md
+
+
+# ----------------------------------------------------------
+
+
+# <<---------- Logs / Debug / Temp ------------->>
+*.log
+*.tmp
+*.bak
+tmp/
+debug_log.txt
+
+
+# ----------------------------------------------------------
