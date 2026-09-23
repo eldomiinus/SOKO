@@ -13,8 +13,8 @@
 
 <div align="center">
 
-[![Privacy First - Static](https://img.shields.io/badge/Privacy-First?style=for-the-badge&logo=Shield&label=Data&labelColor=101418&color=99CCFF)](#)
-[![Encryption - Static](https://img.shields.io/badge/AES_256-SQLCipher?style=for-the-badge&logo=Lock&label=Encryption&labelColor=101418&color=BBBBDD)](#)
+[![Privacy First - Static](https://img.shields.io/badge/Privacity-Data?style=for-the-badge&logo=GoogleAppsScript&logoColor=65686B&label=Data&labelColor=101418&color=99CCFF)](#)
+[![Encryption - Static](https://img.shields.io/badge/AES_256-Encryption?style=for-the-badge&logo=LetsEncrypt&logoColor=65686B&label=Encryption&labelColor=101418&color=BBBBDD)](#)
 
 </div>
 
