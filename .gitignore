@@ -8,10 +8,14 @@
 .agents-backup/
 .codex/
 .claude/
+.crush/
 .gemini/
 .github/agents/
 .github/copilot-instructions.md
 .github/instructions/
+.kilo/
+.kilocode/
+.opencode/
 agents/
 
 # <--- Backup --------->
@@ -42,9 +46,14 @@ AGENTS.md
 SKILLS.md
 PROMPTS.md
 TASKS.md
+SESSION.md
 CODEX.md
 GEMINI.md
 CLAUDE.md
+kilo.json
+opencode.json
+skills-lock.json
+opencode.jsonc
 
 # <--- Reference ---->
 context.md
